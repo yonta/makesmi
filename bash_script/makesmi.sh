@@ -1,7 +1,7 @@
 #/bin/bash
 
 input=$1
-output=${input}".sig"
+output=${input%.*}".smi"
 
 smlsharp < ${input} | tail -n +2 | sed 's/^#[ >]*\(.*\)/\1/g' | \
   sed 's/\[//g' | sed 's/\]//g' | sed 's/'\''[a-z]\.//g' |
